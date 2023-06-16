@@ -18,7 +18,7 @@ const Services = () =>
         <div className="awesome">
             <span >My Awesome </span>
             <span >Services </span>
-            <spane>I am a full stack developer and intern at siemens energy
+            <spane>I am a full stack developer and intern at Siemens Energy
             <br/>
             React js framework
             </spane>
