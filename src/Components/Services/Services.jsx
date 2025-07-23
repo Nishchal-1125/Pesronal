@@ -6,70 +6,65 @@ import Humble from "../../img/humble.png";
 import Card from '../Card/Card';
 import Resume from './Nishchalresume.pdf'
 
-const Services = () =>
-
-{
+const Services = () => {
     return (
+        <div className="services" id="services">
+            {/* Left side elements */}
+            <div className="services-content">
+                <div className="services-header">
+                    <span className="services-title">My Awesome</span>
+                    <span className="services-subtitle">Services</span>
+                    <p className="services-description">
+                        I am a full stack developer specializing in modern web technologies 
+                        and building scalable applications with clean, efficient code.
+                    </p>
+                    <div className="cv-download-section">
+                        <a href={Resume} download className="cv-download-link">
+                            <button className="button cv-button">
+                                <span className="button-icon">📄</span>
+                                Download CV
+                            </button>
+                        </a>
+                    </div>
+                </div>
 
-    <div className= "services">
-       
+                {/* Right side elements */}
+                <div className="services-cards">
+                    <div className="card-wrapper card-1">
+                        <Card
+                            emoji={HeartEmoji}
+                            heading={'Frameworks&Libraries'}
+                            detail={'React.js, Node.js,Express'}
+                        />
+                    </div>
 
-{/* Left side elements */}
-        <div className="awesome">
-            <span >My Awesome </span>
-            <span >Services </span>
-            <spane>I am a full stack developer and intern at Siemens Energy
-            <br/>
-            React js framework
-            </spane>
-            <a href={Resume} download>
+                    <div className="card-wrapper card-2">
+                        <Card
+                            emoji={Glasses}
+                            heading={'Databases'}
+                            detail={'MongoDB, MySQL, PostgreSQL'}
+                        />
+                    </div>
 
-            <button className="button s-button">Download CV</button>
-            </a>
-            <div className='blur s-blur1' style={{background: "#ABF1FF94"}}>
+                    <div className="card-wrapper card-3">
+                        <Card
+                            emoji={Humble}
+                            heading={'Key Skills'}
+                            detail={'REST APIs, WebSockets, Git, JWT, Ajax'}
+                        />
+                    </div>
 
+                    <div className="card-wrapper card-4">
+                        <Card
+                            emoji={Glasses}
+                            heading={'Projects'}
+                            detail={'Transport System, Drug Recommender, SafaiMitra'}
+                        />
+                    </div>
+                </div>
             </div>
-
         </div>
-        {/* Right side elements */}
-
-        <div className="cards">
-            <div style={{left: '14rem'}}>
-                <Card 
-                emoji = {HeartEmoji}
-                heading= {'Design'}
-                detail= {"python, django,react"}
-                />
-            </div>
-            <div style={{top: "12rem", left: "-4rem"}}>
-            <Card 
-                emoji = {Glasses}
-                heading= {'Design'}
-                detail= {"python, django,react"}
-                />
-
-            </div>
-            <div style={{top: "19rem", left: "25rem"}}>
-            <Card 
-                emoji = {Humble}
-                heading= {'Design'}
-                detail= {"python, django,react"}
-                />
-
-            </div>
-            <div className='blur s-blur2' style= {{background: "var(--purple"}}></div>
-            
-           
-
-            
-          
-
-        </div>
-    </div>
-
-
     )
-    
 }
 
 export default Services;
