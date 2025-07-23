@@ -19,7 +19,7 @@ const Intro = () =>{
                 <div className="i-name">
                     <span> Hy! I am </span>
                     <span>Nishchal Baluni</span>
-                    <span>Web Developer with good quality
+                    <span>Full Stack Developer with good quality
                          of designing and skills</span>
                 </div>
                 <button className='button i-button'>Hire me</button>
@@ -44,13 +44,13 @@ const Intro = () =>{
             <img src={boy} alt=""/>
             <img src={glassesimoji} alt=""/>
 
-            <div style= {{top: '-4%', left: '68%'}}>
-                <FloatingDiv image={Crown}  txt1='Web' txt2='Developer'/>
+            <div style= {{top: '-4%', left: '58%'}}>
+                <FloatingDiv image={Crown}  txt1='FULL STACK' txt2='DEVELOPER'/>
             </div>
 
-            <div style={{top: '18rem', left:'0rem' }}>
-                <FloatingDiv image={thumbup}  txt1='FULL STACK' txt2='Developer'/>
-            </div>
+            <div style={{top: '18rem', left:'-1rem', fontWeight: '100'}}>
+                <FloatingDiv image={thumbup}  txt1='DATABASES' txt2='SQL & NOSQL'/>
+            </div>0
             <div className='blur' style={{background: 'rgb(238 210 255'}}></div>
 
             <div className='blur' style={{background: '#C1F5FF', top: '17rem',
