@@ -50,7 +50,8 @@ const Intro = () =>{
 
             <div style={{top: '18rem', left:'-1rem', fontWeight: '100'}}>
                 <FloatingDiv image={thumbup}  txt1='DATABASES' txt2='SQL & NOSQL'/>
-            </div>0
+            </div>
+            
             <div className='blur' style={{background: 'rgb(238 210 255'}}></div>
 
             <div className='blur' style={{background: '#C1F5FF', top: '17rem',

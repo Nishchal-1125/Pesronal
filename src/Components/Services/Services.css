@@ -128,6 +128,17 @@
     animation: float 6s ease-in-out infinite 4.5s;
 }
 
+/* Mobile override for card positioning */
+@media screen and (max-width: 1024px) {
+    .card-1, .card-2, .card-3, .card-4 {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        animation: none !important;
+    }
+}
+
 @keyframes float {
     0%, 100% {
         transform: translateY(0px);
@@ -146,15 +157,29 @@
     }
     
     .services-cards {
-        height: 500px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
         position: static;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
     
     .card-wrapper {
         position: static;
+        animation: none;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .card-1, .card-2, .card-3, .card-4 {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
         animation: none;
     }
 }
@@ -162,6 +187,10 @@
 @media screen and (max-width: 768px) {
     .services {
         padding: 3rem 0;
+    }
+    
+    .services-content {
+        gap: 2rem;
     }
     
     .services-title {
@@ -177,8 +206,12 @@
     }
     
     .services-cards {
-        grid-template-columns: 1fr;
-        height: auto;
+        gap: 1.5rem;
+        max-width: 350px;
+    }
+    
+    .card-wrapper {
+        max-width: 280px;
     }
     
     .cv-button {
@@ -190,6 +223,7 @@
 @media screen and (max-width: 480px) {
     .services-content {
         padding: 0 1rem;
+        gap: 1.5rem;
     }
     
     .services-title {
@@ -202,6 +236,15 @@
     
     .services-description {
         font-size: 1rem;
+    }
+    
+    .services-cards {
+        gap: 1rem;
+        max-width: 300px;
+    }
+    
+    .card-wrapper {
+        max-width: 260px;
     }
     
     .cv-button {
