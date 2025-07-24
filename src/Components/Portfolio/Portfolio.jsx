@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Second from "../../img/secondimage.jpeg"
 import fourth from "../../img/fourth.jpeg"
 import fifth from "../../img/fifth.jpeg"
-import First from "../../img/fisrtupdate.jpeg"
 import third from "../../img/third_image.jpeg"
 import 'swiper/css'
 
