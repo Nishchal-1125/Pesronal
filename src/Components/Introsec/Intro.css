@@ -1,0 +1,300 @@
+.intro{
+    display: flex;
+    min-height: 90vh;
+    margin-top: 0;
+    align-items: center;
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.i-left{
+    display: flex;
+    position: relative;
+    flex: 1;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 2;
+}
+
+.i-name{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.i-name>:nth-child(1){
+    color: var(--medium-gray);
+    font-weight: 500;
+    font-size: 1.8rem;
+    animation: fadeInUp 1s ease-out;
+    letter-spacing: 0.5px;
+}
+
+.i-name>:nth-child(2){
+    color: var(--dark);
+    font-weight: bold;
+    font-size: 4rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.i-name>:nth-child(3){
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--medium-gray);
+    margin-top: 1rem;
+    line-height: 1.7;
+    animation: fadeInUp 1s ease-out 0.4s both;
+    max-width: 450px;
+}
+
+.i-button{
+    width: auto;
+    padding: 12px 30px;
+    margin-top: 1rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.i-icons{
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.i-icons > * {
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    background: var(--sectionBackground);
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    box-shadow: var(--boxShadow);
+}
+
+.i-icons > *:hover {
+    cursor: pointer;
+    transform: scale(0.9) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 138, 101, 0.1) 100%);
+}
+
+.i-right{
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.i-right > * {
+    position: absolute;
+    z-index: 1;
+}
+
+/* Vector background images */
+.i-right > :nth-child(1){
+    transform: scale(0.8);
+    left: -20%;
+    top: -10%;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+.i-right > :nth-child(2){
+    top: -5rem;
+    transform: scale(0.8);
+    left: -5%;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+/* Main character image */
+.i-right > :nth-child(3){
+    transform: scale(1.2);
+    left: 15%;
+    top: 5%;
+    z-index: 2;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
+}
+
+/* Glasses emoji */
+.i-right > :nth-child(4){
+    transform: scale(0.7);
+    top: -15%;
+    left: -20%;
+    border-radius: 50%;
+    padding: 0;
+    z-index: 3;
+    animation: bounce 2s infinite;
+}
+
+.blur{
+    position: absolute;
+    width: 22rem;
+    height: 14rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #edd0ff, #c3cfe2);
+    z-index: -1;
+    top: -18%;
+    left: 56%;
+    filter: blur(72px);
+    opacity: 0.8;
+}
+
+/* Floating Divs positioning */
+.i-right > div:nth-of-type(1) {
+    animation: float 3s ease-in-out infinite;
+}
+
+.i-right > div:nth-of-type(2) {
+    animation: float 3s ease-in-out infinite reverse;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) scale(0.7);
+    }
+    40% {
+        transform: translateY(-10px) scale(0.7);
+    }
+    60% {
+        transform: translateY(-5px) scale(0.7);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 0;
+        padding: 2rem 1rem;
+        min-height: auto;
+    }
+    
+    .i-left {
+        order: 2;
+        align-items: center;
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .i-right {
+        order: 1;
+        min-height: 400px;
+        transform: scale(0.9);
+        margin-bottom: 1rem;
+        position: relative;
+        overflow: visible;
+    }
+    
+    .i-right > :nth-child(4) {
+        display: none !important;
+    }
+    
+    .i-name > :nth-child(1) {
+        font-size: 1.4rem;
+    }
+    
+    .i-name > :nth-child(2) {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+    
+    .i-name > :nth-child(3) {
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .i-icons {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+    
+    .i-button {
+        align-self: center;
+        width: auto;
+    }
+    
+    .blur {
+        width: 18rem;
+        height: 12rem;
+        left: 25%;
+        top: -8%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .i-name > :nth-child(1) {
+        font-size: 1.2rem;
+    }
+    
+    .i-name > :nth-child(2) {
+        font-size: 2.2rem;
+    }
+    
+    .i-name > :nth-child(3) {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .i-right {
+        transform: scale(0.8);
+        min-height: 350px;
+    }
+    
+    /* Hide glasses emoji on small screens to avoid overlap */
+    .i-right > :nth-child(4) {
+        display: none !important;
+    }
+    
+    .blur {
+        width: 16rem;
+        height: 10rem;
+        left: 22%;
+        top: -6%;
+    }
+    
+    .i-icons > * {
+        transform: scale(0.7);
+    }
+    
+    .i-icons > *:hover {
+        transform: scale(0.8) translateY(-3px);
+    }
+    
+    .i-button {
+        padding: 12px 28px;
+        font-size: 15px;
+    }
+}
