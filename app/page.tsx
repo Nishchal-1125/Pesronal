@@ -1,5 +1,5 @@
-import CleanPortfolio from '../components/CleanPortfolio'
+import Portfolio from '../components/Portfolio'
 
 export default function Home() {
-  return <CleanPortfolio />
+  return <Portfolio />
 }
