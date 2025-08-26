@@ -23,8 +23,13 @@ export default function ExperienceSection() {
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 transition-colors duration-300 ${
             isDarkMode ? 'text-white' : 'text-gray-900'
           }`}>
-            Work <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Experience</span>
+            Professional <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Experience</span>
           </h2>
+          <p className={`text-xl max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${
+            isDarkMode ? 'text-gray-300' : 'text-gray-600'
+          }`}>
+            Delivering enterprise solutions with measurable business impact across Fortune 50+ companies
+          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto space-y-8">
@@ -116,6 +121,31 @@ export default function ExperienceSection() {
                         ))}
                       </ul>
                     </div>
+
+                    {/* Impact Metrics */}
+                    {experience.impact && (
+                      <div className="mb-6">
+                        <h4 className={`text-lg font-semibold mb-3 transition-colors duration-300 ${
+                          isDarkMode ? 'text-white' : 'text-gray-900'
+                        }`}>
+                          Business Impact
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {Object.entries(experience.impact).map(([key, value], impactIndex) => (
+                            <div key={impactIndex} className={`p-4 rounded-lg text-center ${
+                              isDarkMode ? 'bg-gray-600' : 'bg-white/70'
+                            }`}>
+                              <div className="text-xl font-bold text-blue-600">{value}</div>
+                              <div className={`text-sm capitalize ${
+                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                              }`}>
+                                {key.replace(/([A-Z])/g, ' $1').trim()}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <div>
                       <h4 className={`text-lg font-semibold mb-3 transition-colors duration-300 ${

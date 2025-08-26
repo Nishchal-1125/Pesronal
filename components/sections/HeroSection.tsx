@@ -83,17 +83,19 @@ export default function HeroSection() {
               <TypeAnimation
                 sequence={[
                   'Nishchal Baluni',
-                  2000,
-                  'a Software Engineer',
-                  2000,
+                  4000,
+                  'a  Software Engineer',
+                  3000,
+                  'a Full-Stack Developer',
+                  3000,
                   'a Problem Solver',
-                  2000,
-                  'a Full Stack Developer',
-                  2000,
+                  3000,
+                  'an Enterprise Solution Architect',
+                  3000,
                 ]}
                 wrapper="span"
-                speed={50}
-                className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
+                speed={75}
+                className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 bg-clip-text text-transparent"
                 repeat={Infinity}
               />
             </motion.h1>
@@ -107,15 +109,25 @@ export default function HeroSection() {
               {PERSONAL_INFO.title} at <span className="text-blue-600 font-bold">Dvertex Info Private Limited</span>
             </motion.div>
 
+            <motion.div
+              className={`text-lg font-medium transition-colors duration-300 ${
+                isDarkMode ? 'text-blue-400' : 'text-blue-600'
+              }`}
+              variants={ANIMATION_VARIANTS.fadeInUp}
+            >
+              {PERSONAL_INFO.tagline}
+            </motion.div>
+
             <motion.p 
               className={`text-lg leading-relaxed max-w-2xl transition-colors duration-300 ${
                 isDarkMode ? 'text-gray-300' : 'text-gray-600'
               }`}
               variants={ANIMATION_VARIANTS.fadeInUp}
             >
-              Passionate Software Engineer with 2+ years of experience building scalable web applications. 
-              Currently working at Dvertex Info Private Limited, specializing in React.js, Node.js, and modern web technologies.
-              Previously interned at Siemens. I love transforming complex problems into elegant, user-friendly solutions.
+              Results-driven Software Engineer with <span className="font-semibold text-blue-600">2+ years</span> of experience 
+              building <span className="font-semibold">enterprise-grade web applications</span> that serve <span className="font-semibold">10,000+ users</span>. 
+              Currently leading technical initiatives at Dvertex Info, with prior experience at <span className="font-semibold">Siemens Energy</span>. 
+              Specialized in creating scalable solutions that deliver measurable business impact and drive revenue growth.
             </motion.p>
 
             {/* Stats */}
@@ -124,10 +136,10 @@ export default function HeroSection() {
               variants={ANIMATION_VARIANTS.fadeInUp}
             >
               {[
-                { label: "Years Experience", value: 2, suffix: "+" },
-                { label: "Projects Completed", value: 15, suffix: "+" },
-                { label: "Technologies", value: 20, suffix: "+" },
-                { label: "Happy Clients", value: 10, suffix: "+" }
+                { label: "Years Experience", value: PERSONAL_INFO.yearsOfExperience, suffix: "+" },
+                { label: "Projects Delivered", value: PERSONAL_INFO.projectsCompleted, suffix: "+" },
+                { label: "Technologies", value: PERSONAL_INFO.technologiesMastered, suffix: "+" },
+                { label: "Satisfied Clients", value: PERSONAL_INFO.clientsSatisfied, suffix: "+" }
               ].map((stat, index) => (
                 <motion.div 
                   key={index} 
@@ -135,10 +147,10 @@ export default function HeroSection() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="text-2xl md:text-3xl font-bold text-blue-600">
-                    <CountUp end={stat.value} duration={2} delay={index * 0.2} />
+                    <CountUp end={stat.value} duration={2.5} delay={index * 0.3} />
                     {stat.suffix}
                   </div>
-                  <div className={`text-sm transition-colors duration-300 ${
+                  <div className={`text-sm font-medium transition-colors duration-300 ${
                     isDarkMode ? 'text-gray-400 group-hover:text-gray-300' : 'text-gray-500 group-hover:text-gray-700'
                   }`}>
                     {stat.label}

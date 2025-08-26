@@ -22,43 +22,56 @@ export default function SkillsSection() {
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 transition-colors duration-300 ${
             isDarkMode ? 'text-white' : 'text-gray-900'
           }`}>
-            Technical <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Skills</span>
+            Technical <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Expertise</span>
           </h2>
+          <p className={`text-xl max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${
+            isDarkMode ? 'text-gray-300' : 'text-gray-600'
+          }`}>
+            Comprehensive skill set spanning modern web technologies, cloud platforms, and enterprise development practices
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SKILLS_DATA.map((category, index) => (
             <motion.div
               key={index}
-              className={`p-6 rounded-2xl transition-colors duration-300 ${
-                isDarkMode ? 'bg-gray-700 border border-gray-600' : 'bg-white shadow-lg'
+              className={`p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
+                isDarkMode 
+                  ? 'bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600'
+                  : 'bg-white border border-gray-200'
               }`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
             >
-              <h3 className={`text-xl font-bold mb-4 transition-colors duration-300 ${
-                isDarkMode ? 'text-white' : 'text-gray-900'
-              }`}>
-                {category.category}
-              </h3>
-              <div className="space-y-2">
+              <div className="flex items-center mb-6">
+                <span className="text-3xl mr-4">{category.icon}</span>
+                <h3 className={`text-xl font-bold transition-colors duration-300 ${
+                  isDarkMode ? 'text-white' : 'text-gray-900'
+                }`}>
+                  {category.category}
+                </h3>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-3">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
-                    className={`rounded-lg px-4 py-2 text-center font-medium transition-all duration-300 ${
+                    className={`flex items-center p-3 rounded-lg transition-all duration-300 ${
                       isDarkMode 
-                        ? 'bg-gradient-to-r from-blue-900/50 to-purple-900/50 text-gray-200 hover:from-blue-800/50 hover:to-purple-800/50' 
-                        : 'bg-gradient-to-r from-blue-50 to-purple-50 text-gray-700 hover:from-blue-100 hover:to-purple-100'
+                        ? 'bg-gray-700 hover:bg-gray-600' 
+                        : 'bg-gray-50 hover:bg-blue-50'
                     }`}
-                    whileHover={{ scale: 1.05 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: skillIndex * 0.05 }}
-                    viewport={{ once: true }}
+                    whileHover={{ x: 5 }}
                   >
-                    {skill}
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mr-3"></div>
+                    <span className={`font-medium transition-colors duration-300 ${
+                      isDarkMode ? 'text-gray-200' : 'text-gray-700'
+                    }`}>
+                      {skill}
+                    </span>
                   </motion.div>
                 ))}
               </div>
