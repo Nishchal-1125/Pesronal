@@ -141,7 +141,7 @@ export const PROJECTS_DATA = [
     title: 'Global Multi-tenant CRM',
     subtitle: 'Enterprise Customer Relationship Management',
     description: 'Scalable, enterprise-grade CRM platform designed for global operations with advanced multi-tenancy, real-time collaboration, and integrated business tools. Serving Fortune 500 clients worldwide.',
-    technologies: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'WebSocket', 'Redis', 'AWS', 'Microservices'],
+    technologies: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'WebSocket', 'Redis', 'AWS'],
     features: [
       'Advanced multi-tenant architecture with enterprise-grade security and data isolation',
       'Complete sales pipeline management with AI-powered lead scoring and conversion prediction',
@@ -152,8 +152,8 @@ export const PROJECTS_DATA = [
       'High-performance architecture with microservices handling millions of transactions daily'
     ],
     metrics: {
-      clients: 'Fortune 50',
-      transactions: '10,000+ daily',
+      clients: 'Fortune 10',
+      transactions: '1000+ daily',
       tenants: '100+',
       availability: '99.99%'
     },
