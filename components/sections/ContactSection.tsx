@@ -23,7 +23,7 @@ export default function ContactSection() {
             Let's <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Work Together</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Ready to bring your ideas to life? I'm always excited to collaborate on innovative projects.
+            Ready to build innovative solutions together? Let's discuss how I can help drive your next project to success with enterprise-grade development expertise.
           </p>
         </motion.div>
 
@@ -102,25 +102,9 @@ export default function ContactSection() {
                   ))}
                 </div>
 
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-4">Follow me</h4>
-                  <div className="flex space-x-4">
-                    {SOCIAL_LINKS.map(({ name, url }, index) => (
-                      <motion.a
-                        key={index}
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title={name}
-                        className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:bg-blue-600"
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {/* Icon will be handled by the parent component */}
-                      </motion.a>
-                    ))}
-                  </div>
-                </div>
+
+
+                
               </motion.div>
             </div>
             
@@ -131,15 +115,31 @@ export default function ContactSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <motion.a
-                href={`mailto:${PERSONAL_INFO.email}`}
-                className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Get In Touch
-              </motion.a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <motion.a
+                  href={`mailto:${PERSONAL_INFO.email}`}
+                  className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Mail className="w-5 h-5 mr-2" />
+                  Start a Project Discussion
+                </motion.a>
+                <motion.a
+                  href={PERSONAL_INFO.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ArrowRight className="w-5 h-5 mr-2" />
+                  Download Resume
+                </motion.a>
+              </div>
+              <p className="text-gray-400 mt-4 text-sm">
+                ✅ Available for new opportunities • ✅ Open to remote/hybrid work • ✅ Enterprise project experience
+              </p>
             </motion.div>
           </div>
         </div>

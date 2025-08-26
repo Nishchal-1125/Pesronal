@@ -76,21 +76,45 @@ export default function EducationSection() {
                       isDarkMode ? 'text-gray-300' : 'text-gray-600'
                     }`}>
                       <div className="font-medium">{education.duration}</div>
-                      <div className="text-sm">{education.grade}</div>
+                      <div className="text-sm font-semibold text-blue-600">{education.grade}</div>
+                      {education.cgpa && (
+                        <div className="text-sm">CGPA: {education.cgpa}</div>
+                      )}
                     </div>
                   </div>
 
-                  <p className={`leading-relaxed mb-4 transition-colors duration-300 ${
+                  <p className={`leading-relaxed mb-6 transition-colors duration-300 ${
                     isDarkMode ? 'text-gray-300' : 'text-gray-700'
                   }`}>
                     {education.description}
                   </p>
 
+                  {/* Achievements */}
+                  {education.achievements && (
+                    <div className="mb-6">
+                      <h4 className={`text-lg font-semibold mb-3 transition-colors duration-300 ${
+                        isDarkMode ? 'text-white' : 'text-gray-900'
+                      }`}>
+                        Academic Achievements
+                      </h4>
+                      <ul className="space-y-2">
+                        {education.achievements.map((achievement, achievementIndex) => (
+                          <li key={achievementIndex} className={`flex items-start transition-colors duration-300 ${
+                            isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                          }`}>
+                            <span className="text-blue-500 mr-2 mt-1">●</span>
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
                   <div>
                     <h4 className={`text-lg font-semibold mb-3 transition-colors duration-300 ${
                       isDarkMode ? 'text-white' : 'text-gray-900'
                     }`}>
-                      Key Subjects
+                      Core Subjects & Specialization
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {education.subjects.map((subject, subIndex) => (
