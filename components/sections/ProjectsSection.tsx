@@ -141,7 +141,7 @@ export default function ProjectsSection() {
                   </div>
 
                   <div className="flex gap-4">
-                    <motion.a
+                    {/* <motion.a
                       href={project.github}
                       className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors duration-300 ${
                         isDarkMode 
@@ -153,7 +153,7 @@ export default function ProjectsSection() {
                     >
                       <Github className="w-4 h-4 mr-2" />
                       Code
-                    </motion.a>
+                    </motion.a> */}
                     <motion.a
                       href={project.demo}
                       className="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-300"

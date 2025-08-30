@@ -115,7 +115,7 @@ export const PROJECTS_DATA = [
     title: 'SafaiMitra SaaS Platform',
     subtitle: 'Enterprise Waste Management Solution',
     description: 'Comprehensive SaaS platform revolutionizing municipal waste management with real-time tracking, AI-powered route optimization, and citizen engagement features. Serving 10+ municipalities with 99.9% uptime.',
-    technologies: ['React.js', 'Node.js', 'MongoDB', 'MySQL', 'WebSocket', 'Redis', 'AWS', 'Docker'],
+    technologies: ['React.js', 'Node.js', 'MongoDB', 'MySQL', 'WebSocket', 'Redis'],
     features: [
       'Real-time GPS tracking system managing 500+ vehicles with AI-powered route optimization',
       'Dynamic route assignment with ML algorithms reducing fuel costs by 30%',
@@ -124,7 +124,7 @@ export const PROJECTS_DATA = [
       'Advanced complaint management system with SLA tracking and auto-escalation',
       'High-performance caching with Redis achieving 99.9% uptime and sub-200ms response times',
       'Comprehensive admin dashboard with real-time analytics and business intelligence',
-      'Mobile-first PWA design supporting offline functionality for field operations'
+      // 'Mobile-first PWA design supporting offline functionality for field operations'
     ],
     metrics: {
       users: '10,000+',
@@ -141,15 +141,15 @@ export const PROJECTS_DATA = [
     title: 'Global Multi-tenant CRM',
     subtitle: 'Enterprise Customer Relationship Management',
     description: 'Scalable, enterprise-grade CRM platform designed for global operations with advanced multi-tenancy, real-time collaboration, and integrated business tools. Serving Fortune 500 clients worldwide.',
-    technologies: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'WebSocket', 'Redis', 'AWS'],
+    technologies: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'WebSocket', 'Redis', 'OAuth'],
     features: [
       'Advanced multi-tenant architecture with enterprise-grade security and data isolation',
       'Complete sales pipeline management with AI-powered lead scoring and conversion prediction',
       'Real-time collaboration tools with integrated video conferencing and document sharing',
       'Advanced analytics engine with custom dashboards and automated reporting',
       'Seamless Google Workspace integration with Calendar, Drive, and Gmail synchronization',
-      'Sophisticated ticketing system with AI-powered categorization and SLA management',
-      'High-performance architecture with microservices handling millions of transactions daily'
+      // 'Sophisticated ticketing system with AI-powered categorization and SLA management',
+      // 'High-performance architecture with microservices handling millions of transactions daily'
     ],
     metrics: {
       clients: 'Fortune 10',
