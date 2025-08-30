@@ -65,7 +65,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             animate={{ scale: 1, rotate: 0 }}
             transition={{ 
               duration: 1.2, 
-              ease: "easeOutBack",
+              // ease: "easeOutBack",
               type: "spring",
               stiffness: 100
             }}

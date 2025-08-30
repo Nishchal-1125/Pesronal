@@ -3,7 +3,7 @@ export const PERSONAL_INFO = {
   title: ' Software Engineer',
   tagline: 'Building scalable, enterprise-grade solutions that drive business growth',
   email: 'nishchalbaluni25@gmail.com',
-  location: 'Greater Noida, NCR, India',
+  location: 'Pratap Vihar, Ghaziabad, NCR, India',
   linkedin: 'https://linkedin.com/in/nishchal-baluni-0a7438207/',
   github: 'https://github.com/Nishchal-1125',
   resume: '/Nishchal_Resume.pdf',

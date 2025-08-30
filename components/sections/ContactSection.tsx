@@ -48,7 +48,7 @@ export default function ContactSection() {
                     {
                       icon: <Phone className="w-6 h-6" />,
                       title: "Phone", 
-                      value: "Available on request",
+                      value: "9354983769",
                       link: `mailto:${PERSONAL_INFO.email}`
                     },
                     {
