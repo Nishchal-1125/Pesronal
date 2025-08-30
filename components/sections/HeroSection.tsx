@@ -6,7 +6,7 @@ import { ExternalLink, Download, Github, Linkedin, Mail, ChevronDown } from 'luc
 import { useTheme } from '@/lib/ThemeContext'
 import { PERSONAL_INFO, SOCIAL_LINKS } from '@/constants/data'
 import { ANIMATION_VARIANTS } from '@/constants/animations'
-import { downloadResume } from '@/lib/utils'
+import { downloadResume, scrollToSection } from '@/lib/utils'
 import CountUp from 'react-countup'
 
 export default function HeroSection() {
@@ -76,7 +76,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.h1 
-              className={`text-4xl md:text-6xl lg:text-7xl font-bold transition-colors duration-300`}
+              className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold transition-colors duration-300 leading-tight`}
               variants={ANIMATION_VARIANTS.fadeInUp}
             >
               <span className={isDarkMode ? 'text-white' : 'text-gray-900'}>Hi, I'm </span>
@@ -101,7 +101,7 @@ export default function HeroSection() {
             </motion.h1>
 
             <motion.div 
-              className={`text-xl md:text-2xl font-medium transition-colors duration-300 ${
+              className={`text-lg md:text-xl lg:text-2xl font-medium transition-colors duration-300 ${
                 isDarkMode ? 'text-gray-300' : 'text-gray-600'
               }`}
               variants={ANIMATION_VARIANTS.fadeInUp}
@@ -110,7 +110,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div
-              className={`text-lg font-medium transition-colors duration-300 ${
+              className={`text-base md:text-lg font-medium transition-colors duration-300 ${
                 isDarkMode ? 'text-blue-400' : 'text-blue-600'
               }`}
               variants={ANIMATION_VARIANTS.fadeInUp}
@@ -119,7 +119,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.p 
-              className={`text-lg leading-relaxed max-w-2xl transition-colors duration-300 ${
+              className={`text-base md:text-lg leading-relaxed max-w-2xl transition-colors duration-300 ${
                 isDarkMode ? 'text-gray-300' : 'text-gray-600'
               }`}
               variants={ANIMATION_VARIANTS.fadeInUp}
@@ -132,7 +132,7 @@ export default function HeroSection() {
 
             {/* Stats */}
             <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+              className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6"
               variants={ANIMATION_VARIANTS.fadeInUp}
             >
               {[
@@ -146,11 +146,11 @@ export default function HeroSection() {
                   className="text-center group"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-blue-600">
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-blue-600">
                     <CountUp end={stat.value} duration={2.5} delay={index * 0.3} />
                     {stat.suffix}
                   </div>
-                  <div className={`text-sm font-medium transition-colors duration-300 ${
+                  <div className={`text-xs md:text-sm font-medium transition-colors duration-300 ${
                     isDarkMode ? 'text-gray-400 group-hover:text-gray-300' : 'text-gray-500 group-hover:text-gray-700'
                   }`}>
                     {stat.label}
@@ -161,24 +161,24 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               variants={ANIMATION_VARIANTS.fadeInUp}
             >
-              <motion.a
-                href="#projects"
-                className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white font-semibold hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 text-center"
+              <motion.button
+                onClick={() => scrollToSection('projects')}
+                className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white font-semibold hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 text-center"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="flex items-center justify-center">
-                  <ExternalLink className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+                  <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:rotate-12 transition-transform" />
                   View My Work
                 </span>
-              </motion.a>
+              </motion.button>
 
               <motion.button
                 onClick={downloadResume}
-                className={`group px-8 py-4 border-2 rounded-xl font-semibold transition-all duration-300 ${
+                className={`group px-6 py-3 sm:px-8 sm:py-4 border-2 rounded-xl font-semibold transition-all duration-300 ${
                   isDarkMode 
                     ? 'border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900' 
                     : 'border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'
@@ -187,7 +187,7 @@ export default function HeroSection() {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="flex items-center justify-center">
-                  <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                  <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-bounce" />
                   Download Resume
                 </span>
               </motion.button>
@@ -273,14 +273,14 @@ export default function HeroSection() {
 
             {/* Floating Tech Icons */}
             {[
-              { name: "React", position: "top-10 right-10", delay: 0 },
-              { name: "Node", position: "top-32 left-8", delay: 0.5 },
-              { name: "TS", position: "bottom-32 right-8", delay: 1 },
-              { name: "JS", position: "bottom-10 left-12", delay: 1.5 },
+              { name: "React", position: "top-8 right-8", delay: 0 },
+              { name: "Node", position: "top-24 left-6", delay: 0.5 },
+              { name: "TS", position: "bottom-24 right-6", delay: 1 },
+              { name: "JS", position: "bottom-8 left-8", delay: 1.5 },
             ].map((tech, index) => (
               <motion.div
                 key={index}
-                className={`absolute ${tech.position} w-16 h-16 backdrop-blur-sm border rounded-2xl flex items-center justify-center font-bold shadow-lg transition-colors duration-300 ${
+                className={`absolute ${tech.position} w-14 h-14 backdrop-blur-sm border rounded-xl flex items-center justify-center text-sm font-bold shadow-lg transition-colors duration-300 ${
                   isDarkMode 
                     ? 'bg-gray-800/80 border-gray-600 text-gray-200' 
                     : 'bg-white/80 border-gray-200 text-gray-700'

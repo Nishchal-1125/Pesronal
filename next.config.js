@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: "export",
+  // output: "export", // Temporarily commented for dev testing
   images: {
     domains: ['localhost'],
     unoptimized: true

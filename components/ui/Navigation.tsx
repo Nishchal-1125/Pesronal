@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useTheme } from '@/lib/ThemeContext'
 import { useActiveSection } from '@/hooks/useActiveSection'
@@ -57,6 +57,19 @@ export default function Navigation() {
   const { activeSection, sections } = useActiveSection()
 
   const closeMenu = () => setIsMenuOpen(false)
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMenuOpen])
 
   return (
     <motion.nav 
@@ -139,34 +152,59 @@ export default function Navigation() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            className={`md:hidden absolute top-16 left-0 right-0 border-b shadow-lg transition-colors duration-300 ${
-              isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-white'
-            }`}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="px-4 py-2 space-y-1">
-              {sections.map((section) => (
-                <button
-                  key={section}
-                  onClick={() => {
-                    scrollToSection(section)
-                    closeMenu()
-                  }}
-                  className={`block w-full text-left px-4 py-2 rounded-lg capitalize transition-colors duration-300 ${
-                    isDarkMode 
-                      ? 'text-gray-300 hover:bg-gray-800 hover:text-white' 
-                      : 'text-gray-700 hover:bg-gray-50'
-                  }`}
-                >
-                  {section}
-                </button>
-              ))}
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMenu}
+            />
+            
+            {/* Menu */}
+            <motion.div
+              className={`md:hidden absolute top-16 left-0 right-0 border-b shadow-lg transition-colors duration-300 backdrop-blur-lg z-40 ${
+                isDarkMode ? 'bg-gray-900/95 border-gray-800' : 'bg-white/95 border-gray-200'
+              }`}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="px-4 py-3 space-y-2">
+                {sections.map((section, index) => (
+                  <motion.button
+                    key={section}
+                    onClick={() => {
+                      // Close menu first, then scroll
+                      closeMenu()
+                      
+                      // Small delay to ensure menu closes before scrolling
+                      setTimeout(() => {
+                        scrollToSection(section)
+                      }, 200)
+                    }}
+                    className={`block w-full text-left px-4 py-3 rounded-lg capitalize font-medium transition-all duration-300 ${
+                      activeSection === section
+                        ? isDarkMode 
+                          ? 'bg-blue-900/30 text-blue-400 border border-blue-800' 
+                          : 'bg-blue-50 text-blue-600 border border-blue-200'
+                        : isDarkMode 
+                          ? 'text-gray-300 hover:bg-gray-800 hover:text-white' 
+                          : 'text-gray-700 hover:bg-gray-50'
+                    }`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {section}
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>

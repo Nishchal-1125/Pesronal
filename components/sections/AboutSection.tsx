@@ -43,7 +43,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 transition-colors duration-300 ${
+          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 transition-colors duration-300 ${
             isDarkMode ? 'text-white' : 'text-gray-900'
           }`}>
             About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Me</span>
@@ -57,7 +57,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className={`text-xl leading-relaxed space-y-6 transition-colors duration-300 ${
+            <div className={`text-base md:text-lg lg:text-xl leading-relaxed space-y-4 md:space-y-6 transition-colors duration-300 ${
               isDarkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
               <p>

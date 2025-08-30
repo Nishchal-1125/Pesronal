@@ -12,7 +12,15 @@ export const downloadResume = () => {
 export const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
+    // Get navigation height for proper offset
+    const navHeight = 80 // Fixed nav height + padding
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+    const offsetPosition = elementPosition - navHeight
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
   }
 }
 
@@ -21,7 +29,9 @@ export const getActiveSection = (sections: string[]) => {
     const element = document.getElementById(section)
     if (element) {
       const rect = element.getBoundingClientRect()
-      return rect.top <= 100 && rect.bottom > 100
+      // Adjust for mobile devices with different navigation heights
+      const navOffset = window.innerWidth < 768 ? 80 : 100
+      return rect.top <= navOffset && rect.bottom > navOffset
     }
     return false
   })
