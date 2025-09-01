@@ -90,8 +90,6 @@ export default function HeroSection() {
                   3000,
                   'a Problem Solver',
                   3000,
-                  'an Enterprise Solution Architect',
-                  3000,
                 ]}
                 wrapper="span"
                 speed={75}
