@@ -264,7 +264,7 @@ export default function HeroSection() {
                 <p className={`text-sm leading-relaxed transition-colors duration-300 ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
-                  Building innovative solutions at Dvertex Info Private Limited
+                  Building innovative solutions that drive success and deliver value.
                 </p>
               </div>
             </motion.div>
