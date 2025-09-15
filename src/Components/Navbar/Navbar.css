@@ -1,0 +1,233 @@
+.n-wrapper{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.n-left{
+    flex: 1;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.n-name{
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--orange) 0%, #FF8A65 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+.n-name::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, var(--orange) 0%, #FF8A65 100%);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.n-name:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.8rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background: var(--sectionBackground);
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--orange) 0%, #FF8A65 100%);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.n-right{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: 500;
+    gap: 3rem;
+}
+
+.n-list{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.n-list > ul{
+    display: flex;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.n-list > ul > li {
+    cursor: pointer;
+    padding: 12px 24px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    position: relative;
+    color: var(--dark);
+    font-size: 16px;
+    letter-spacing: 0.3px;
+}
+
+.n-list > ul > li:hover {
+    color: var(--orange);
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 138, 101, 0.1) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(255, 107, 53, 0.15);
+}
+
+.n-list > ul > li::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 8px;
+    left: 50%;
+    background: linear-gradient(135deg, var(--orange) 0%, #FF8A65 100%);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.n-list > ul > li:hover::after {
+    width: 60%;
+    left: 20%;
+}
+
+.n-button{
+    flex: none;
+    padding: 12px 28px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.n-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 15px 30px rgba(44, 62, 80, 0.4);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .n-wrapper {
+        padding: 0 1rem;
+        height: 70px;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .n-right {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        height: calc(100vh - 70px);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 3rem;
+        transition: right 0.3s ease;
+        backdrop-filter: blur(20px);
+        z-index: 999;
+    }
+    
+    .n-right.active {
+        right: 0;
+    }
+    
+    .n-list {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .n-list > ul {
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .n-list > ul > li {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 25px;
+    }
+    
+    .n-button {
+        margin-top: 1rem;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .n-name {
+        font-size: 1.3rem;
+    }
+    
+    .n-list > ul > li {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .n-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+
