@@ -89,7 +89,6 @@ export default function EducationSection() {
                     {education.description}
                   </p>
 
-                  {/* Achievements */}
                   {education.achievements && (
                     <div className="mb-6">
                       <h4 className={`text-lg font-semibold mb-3 transition-colors duration-300 ${
